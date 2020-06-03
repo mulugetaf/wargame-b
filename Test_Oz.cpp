@@ -1,12 +1,9 @@
 #include "doctest.h"
 #include <iostream>
 #include <stdexcept>
-#include "Board.hpp"
-#include "FootSoldier.hpp"
+#include "DemoGame.hpp"
 #include "FootCommander.hpp"
-#include "Sniper.hpp"
 #include "SniperCommander.hpp"
-#include "Paramedic.hpp"
 #include "ParamedicCommander.hpp"
 #include <cassert>
 using namespace WarGame;

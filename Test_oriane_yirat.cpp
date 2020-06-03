@@ -1,13 +1,10 @@
 #include "doctest.h"
 #include <iostream>
 #include <stdexcept>
-#include "FootSoldier.hpp"
+#include "DemoGame.hpp"
 #include "FootCommander.hpp"
-#include "Sniper.hpp"
 #include "SniperCommander.hpp"
-#include "Paramedic.hpp"
 #include "ParamedicCommander.hpp"
-#include "Board.hpp"
 #include <cassert>
 using namespace WarGame;
 WarGame::Board fillBoard(){
