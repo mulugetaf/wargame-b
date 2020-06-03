@@ -12,7 +12,6 @@
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
-
 namespace WarGame
 {
 

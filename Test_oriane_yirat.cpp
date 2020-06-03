@@ -1,15 +1,14 @@
-//
-// Created by Yirat and Orian on 19/05/2020.
-//
-
 #include "doctest.h"
-#include "DemoGame.hpp"
+#include <iostream>
+#include <stdexcept>
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
 #include "Sniper.hpp"
 #include "SniperCommander.hpp"
 #include "Paramedic.hpp"
 #include "ParamedicCommander.hpp"
+#include "Board.hpp"
+#include <cassert>
 using namespace WarGame;
 WarGame::Board fillBoard(){
     WarGame::Board p(6,6);
