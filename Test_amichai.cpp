@@ -11,16 +11,16 @@
 #include <cassert>
 
 //check exceptions in diff cases
-using namespace WarGame;
-TEST_CASE("Sniper VS Sniper")
+
+TEST_CASE("WarGame::Sniper VS WarGame::Sniper")
 { //good
     WarGame::Board board(8, 8);
     CHECK(!board.has_soldiers(1));
-    board[{0, 1}] = new Sniper(1);
+    board[{0, 1}] = new WarGame::Sniper(1);
     CHECK(board.has_soldiers(1));
 
     CHECK(!board.has_soldiers(2));
-    board[{7, 1}] = new Sniper(2);
+    board[{7, 1}] = new WarGame::Sniper(2);
     CHECK(board.has_soldiers(2));
 
     board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up);
@@ -36,11 +36,11 @@ TEST_CASE("Foot vs Foot")
 {
     WarGame::Board board(8, 8);
     CHECK(!board.has_soldiers(1));
-    board[{0, 1}] = new FootSoldier(1); //soldier 1 - 100
+    board[{0, 1}] = new WarGame::FootSoldier(1); //soldier 1 - 100
     CHECK(board.has_soldiers(1));
 
     CHECK(!board.has_soldiers(2));
-    board[{7, 1}] = new FootSoldier(2); //soldier 2 - 100
+    board[{7, 1}] = new WarGame::FootSoldier(2); //soldier 2 - 100
     CHECK(board.has_soldiers(2));
 
     board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up); //soldier 2 - 90
@@ -102,33 +102,33 @@ TEST_CASE("3 VS 3")
 {
     WarGame::Board board(8, 8);
     CHECK(!board.has_soldiers(1));
-    board[{0, 1}] = new FootSoldier(1);   //player 1 footSoldier1 {0,1}
-                                          // CHECK_THROWS((board[{0,1}] = new FootSoldier(1))); //there is already soldier there
-    board[{0, 0}] = new FootCommander(1); //player 1 commanderSoldier {0,0}
-    board[{0, 2}] = new FootSoldier(1);   //player 1 footSoldier2 {0,2}
+    board[{0, 1}] = new WarGame::FootSoldier(1);   //player 1 WarGame::FootSoldier1 {0,1}
+                                          // CHECK_THROWS((board[{0,1}] = new WarGame::FootSoldier(1))); //there is already soldier there
+    board[{0, 0}] = new WarGame::FootCommander(1); //player 1 commanderSoldier {0,0}
+    board[{0, 2}] = new WarGame::FootSoldier(1);   //player 1 WarGame::FootSoldier2 {0,2}
     CHECK(board.has_soldiers(1));         //there is no need to write this any time
 
     CHECK(!board.has_soldiers(2));
-    board[{7, 0}] = new FootCommander(2); //player 2 commanderSoldier {7,0}
-    board[{7, 1}] = new FootSoldier(2);   //player 2 footSoldier1 {7,1}
-    board[{7, 2}] = new FootSoldier(2);   //player 2 footSoldier2 {7,2}
+    board[{7, 0}] = new WarGame::FootCommander(2); //player 2 commanderSoldier {7,0}
+    board[{7, 1}] = new WarGame::FootSoldier(2);   //player 2 WarGame::FootSoldier1 {7,1}
+    board[{7, 2}] = new WarGame::FootSoldier(2);   //player 2 WarGame::FootSoldier2 {7,2}
 
     CHECK(board.has_soldiers(2));
 
-    board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up); //player 2 footsoldier1 - 90
+    board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up); //player 2 WarGame::FootSoldier1 - 90
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
     CHECK_THROWS(board.move(1, {0, 1}, WarGame::Board::MoveDIR::Up)); //no soldier there
-    board.move(1, {1, 1}, WarGame::Board::MoveDIR::Up);               //player 2 footsoldier1 - 80
+    board.move(1, {1, 1}, WarGame::Board::MoveDIR::Up);               //player 2 WarGame::FootSoldier1 - 80
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 
     CHECK_THROWS(board.move(2, {7, 0}, WarGame::Board::MoveDIR::Left)); // cant move left
-    board.move(2, {7, 0}, WarGame::Board::MoveDIR::Down);               //player 1 commanderSoldier - 130, player 1 footsoldier1 - 70,   player 1 footsoldier2 - 90,
+    board.move(2, {7, 0}, WarGame::Board::MoveDIR::Down);               //player 1 commanderSoldier - 130, player 1 WarGame::FootSoldier1 - 70,   player 1 WarGame::FootSoldier2 - 90,
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
 
-    board.move(1, {0, 0}, WarGame::Board::MoveDIR::Up); //player 2 commanderSoldier - 130, player 2 footsoldier1 - 70,   player 2 footsoldier2 - 90,
+    board.move(1, {0, 0}, WarGame::Board::MoveDIR::Up); //player 2 commanderSoldier - 130, player 2 WarGame::FootSoldier1 - 70,   player 2 WarGame::FootSoldier2 - 90,
     CHECK(board.has_soldiers(2));
     CHECK(board.has_soldiers(1));
     board.move(1, {1, 0}, WarGame::Board::MoveDIR::Down);
@@ -165,24 +165,24 @@ TEST_CASE("One soldier of this type")
 {
     WarGame::Board board(8, 8);
     CHECK(!board.has_soldiers(1));
-    board[{0, 0}] = new FootSoldier(1); //player 1 soldier1
+    board[{0, 0}] = new WarGame::FootSoldier(1); //player 1 soldier1
     CHECK(board.has_soldiers(1));
-    board[{0, 1}] = new FootCommander(1); //player 1 soldier2
+    board[{0, 1}] = new WarGame::FootCommander(1); //player 1 soldier2
     CHECK(board.has_soldiers(1));
-    board[{0, 2}] = new Sniper(1); //player 1 soldier3
+    board[{0, 2}] = new WarGame::Sniper(1); //player 1 soldier3
     CHECK(board.has_soldiers(1));
-    board[{0, 3}] = new SniperCommander(1); //player 1 soldier4
+    board[{0, 3}] = new WarGame::SniperCommander(1); //player 1 soldier4
     CHECK(board.has_soldiers(1));
-    board[{0, 4}] = new Paramedic(1);          //player 1 soldier5
-    board[{0, 5}] = new ParamedicCommander(1); //player 1 soldier6
+    board[{0, 4}] = new WarGame::Paramedic(1);          //player 1 soldier5
+    board[{0, 5}] = new WarGame::ParamedicCommander(1); //player 1 soldier6
     CHECK(board.has_soldiers(1));
     CHECK(!board.has_soldiers(2));
-    board[{7, 0}] = new FootSoldier(2);        //player 2 soldier1
-    board[{7, 1}] = new FootCommander(2);      //player 2 soldier2
-    board[{7, 2}] = new Sniper(2);             //player 2 soldier3
-    board[{7, 3}] = new SniperCommander(2);    //player 2 soldier4
-    board[{7, 4}] = new Paramedic(2);          //player 2 soldier5
-    board[{7, 5}] = new ParamedicCommander(2); //player 2 soldier6
+    board[{7, 0}] = new WarGame::FootSoldier(2);        //player 2 soldier1
+    board[{7, 1}] = new WarGame::FootCommander(2);      //player 2 soldier2
+    board[{7, 2}] = new WarGame::Sniper(2);             //player 2 soldier3
+    board[{7, 3}] = new WarGame::SniperCommander(2);    //player 2 soldier4
+    board[{7, 4}] = new WarGame::Paramedic(2);          //player 2 soldier5
+    board[{7, 5}] = new WarGame::ParamedicCommander(2); //player 2 soldier6
 
     //consider using for.....
     CHECK(board.has_soldiers(2));
@@ -199,7 +199,7 @@ TEST_CASE("One soldier of this type")
     board.move(1, {0, 5}, WarGame::Board::MoveDIR::Up); //player1 soldier5 - 100, player 1 soldier4 - 120, player 1 soldier6 - 200
     CHECK(board.has_soldiers(2));
 
-    //sniper 1 will kill them all
+    //WarGame::Sniper 1 will kill them all
     board.move(1, {1, 3}, WarGame::Board::MoveDIR::Down); //player2 soldier6 - 100, player 2 soldier2 80
     CHECK(board.has_soldiers(2));
     board.move(1, {0, 3}, WarGame::Board::MoveDIR::Up); //player2 soldier4 - 20, player2 soldier3 - 50 //need to define to check the closes when there are equalh healh points
@@ -222,13 +222,13 @@ TEST_CASE("2 VS 2")
 {
     WarGame::Board board(8, 8);
     CHECK(!board.has_soldiers(1));
-    board[{0, 1}] = new FootSoldier(1);   //player1 soldier1 - 100
-    board[{0, 0}] = new FootCommander(1); //player1 soldier2 - 150
+    board[{0, 1}] = new WarGame::FootSoldier(1);   //player1 soldier1 - 100
+    board[{0, 0}] = new WarGame::FootCommander(1); //player1 soldier2 - 150
     CHECK(board.has_soldiers(1));
 
     CHECK(!board.has_soldiers(2));
-    board[{7, 0}] = new FootCommander(2); //player2 soldier1 - 100
-    board[{7, 1}] = new FootSoldier(2);   //player2 soldier2 - 150
+    board[{7, 0}] = new WarGame::FootCommander(2); //player2 soldier1 - 100
+    board[{7, 1}] = new WarGame::FootSoldier(2);   //player2 soldier2 - 150
 
     CHECK(board.has_soldiers(2));
 
