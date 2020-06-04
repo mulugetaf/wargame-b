@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 using namespace std;
-namespace WarGame {
 	class Soldier {
 		public:
 		uint player_number;
@@ -15,4 +14,4 @@ namespace WarGame {
 		Soldier(uint p_n):player_number(p_n),player_health(1){};
 		// You have to write this class 
 	};
-};
+

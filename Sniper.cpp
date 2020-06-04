@@ -4,11 +4,11 @@
 #include <stdexcept>
 #include <iostream>
 #include "Sniper.hpp"
-void WarGame::Sniper::Full_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void Sniper::Full_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     Basic_attack(other, board, p);
 }
-void WarGame::Sniper::Basic_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void Sniper::Basic_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     int imax = p.first, jmax = p.second;
     for (int i = 0; i < board.size(); i++)

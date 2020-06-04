@@ -1,7 +1,7 @@
 #pragma once
 #include "Paramedic.hpp"
-namespace WarGame
-{
+
+
 	class ParamedicCommander : public Paramedic
 	{
 	public:
@@ -14,4 +14,3 @@ namespace WarGame
 		void Full_attack(Soldier &other, vector<vector<Soldier *>> board, pair<int, int> p);
 		// You have to write this class
 	};
-}; // namespace WarGame

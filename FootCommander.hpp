@@ -1,7 +1,6 @@
 #pragma once
 #include "FootSoldier.hpp"
 #include <iostream>
-namespace WarGame {
 	class FootCommander : public FootSoldier{
 		public:
 		//int full_health = 150;
@@ -14,4 +13,4 @@ namespace WarGame {
 		void Full_attack(Soldier& other,vector<vector<Soldier *>> board,pair<int,int> p) ;
 		// You have to write this class 
 	};
-}
+

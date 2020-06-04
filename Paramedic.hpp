@@ -1,7 +1,6 @@
 #pragma once
 #include "Soldier.hpp"
-namespace WarGame
-{
+
 	class Paramedic : public Soldier
 	{
 	public:
@@ -13,4 +12,4 @@ namespace WarGame
 		
 		// You have to write this class
 	};
-} // namespace WarGame
+

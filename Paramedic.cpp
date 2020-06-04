@@ -9,13 +9,13 @@
 
 using namespace std;
 
-void WarGame::Paramedic::Full_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void Paramedic::Full_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     int i = (int)p.first;
     int j = (int)p.second;
     Basic_attack(*board[i][j], board, p);
 }
-void WarGame::Paramedic::Basic_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void Paramedic::Basic_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
 
     int i = (int)p.first;
@@ -33,7 +33,7 @@ void WarGame::Paramedic::Basic_attack(WarGame::Soldier &other, std::vector<std::
         }
     }
 }
-std::pair<uint, uint> WarGame::Paramedic::distance(vector<vector<Soldier *>> board, int f_index, int s_index, int s)
+std::pair<uint, uint> Paramedic::distance(std::vector<std::vector<Soldier *>> board, int f_index, int s_index, int s)
 {
     std::pair<int, int> ans;
     double min = 100.0;

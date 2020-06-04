@@ -11,9 +11,8 @@
 #include "Paramedic.hpp"
 #include "ParamedicCommander.hpp"
 
-using namespace WarGame;
 using namespace std;
-std::pair<uint, uint> WarGame::Soldier::distance(vector<vector<Soldier *>> board, int f_index, int s_index, int s)
+std::pair<uint, uint> Soldier::distance(std::vector<std::vector<Soldier *>> board, int f_index, int s_index, int s)
 {
     std::pair<int, int> ans;
     int min = INT_MAX;

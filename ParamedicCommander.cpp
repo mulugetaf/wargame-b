@@ -4,7 +4,7 @@
 #include <iostream>
 #include "ParamedicCommander.hpp"
 
-void WarGame::ParamedicCommander::Full_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void ParamedicCommander::Full_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     for (int i = 0; i < board.size(); i++)
     {
@@ -20,7 +20,7 @@ void WarGame::ParamedicCommander::Full_attack(WarGame::Soldier &other, std::vect
         }
     }
 }
-void WarGame::ParamedicCommander::Basic_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void ParamedicCommander::Basic_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     int i = (int)p.first;
     int j = (int)p.second;

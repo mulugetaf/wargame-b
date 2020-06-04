@@ -5,11 +5,11 @@
 #include <iostream>
 #include "FootSoldier.hpp"
 
-void WarGame::FootSoldier::Full_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void FootSoldier::Full_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     Basic_attack(other, board, p);
 }
-void WarGame::FootSoldier::Basic_attack(WarGame::Soldier &other, std::vector<std::vector<WarGame::Soldier *>> board, std::pair<int, int> p)
+void FootSoldier::Basic_attack(Soldier &other, std::vector<std::vector<Soldier *>> board, std::pair<int, int> p)
 {
     int i = (int)p.first;
     int j = (int)p.second;
